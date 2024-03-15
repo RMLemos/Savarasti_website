@@ -26,7 +26,7 @@
                         <img src="{{ book.cover.url }}" alt="Image of the cover of the book">
                     </div>
                     <div class="book-title-container">
-                        <a class="book-link" href="#">
+                        <a class="book-link" href="{% url 'library:book_detail' book.id %}">
                             {{ book.title }}
                         </a>
                     </div>
@@ -54,7 +54,7 @@
                         <img src="{{ author.picture.url }}" alt="Image of the author">
                     </div>
                     <div class="book-title-container">
-                        <a class="book-link" href="#">
+                        <a class="book-link" href="{% url 'library:author' author.slug %}">
                             {{ author.name }}
                         </a>
                     </div>

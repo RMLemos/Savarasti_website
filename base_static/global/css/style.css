@@ -308,19 +308,20 @@
   .footer-copy{
     color: var(--clr-white);
     font-family: 'Roboto', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 500;
   }
 
     /* Book and Author pages */
     .data-meta {
       display: flex;
-      flex-flow: column nowrap;
-      text-align: center;
+      flex-flow: row wrap;
+      text-align: start;
     }
     
-    .data-title {
-      font-size: 1.6rem;
+    .data-meta-text {
+      font-size: 1.1rem;
+      padding-right: var(--spacing);
     }
   
     .text-meta{

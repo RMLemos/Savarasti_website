@@ -9,16 +9,16 @@
             <section class="hero">
                 <img class="hero-content-img" src= {{ book.cover.url }} alt="Book cover of {{ book.title }}" >
                 <header class="hero-content">
-                    <h1 class="hero-content-title">{{ book.title }}</h1>
+                    <h2 class="hero-content-title">{{ book.title }}</h2>
                     <a class="hero-content-subtitle">
                         {% for author in book.author.all %}
                             {{ author.name }}{% if not forloop.last %}, {% endif %}
                         {% endfor %}
                     </a>
                     <div class="data-meta">
-                        <span class="data-meta-text">{{ book.isbn }}</span>
-                        <span class="data-meta-text">{{ book.publisher }}</span>
-                        <span class="data-meta-text">{{ book.nr_pages }}</span>
+                        <span class="data-meta-text">ISBN: {{ book.isbn }}</span>
+                        <span class="data-meta-text">Publisher: {{ book.publisher }}</span>
+                        <span class="data-meta-text">Pages: {{ book.nr_pages }}</span>
                     </div>
                     <button class="start-reading-button" href="#">Add</button>
                 </header>

@@ -12,14 +12,14 @@ def index(request):
         'authors': author,
         'books': books,
     }
-    
+
     return render(request, 'library/index.html', context)
 
 
 def author(request, slug):
     authors = Author.objects.get(slug=slug)
     books = Book.objects.filter(
-        author=author,
+        author=authors,
     ).order_by('-id')
 
     context = {
