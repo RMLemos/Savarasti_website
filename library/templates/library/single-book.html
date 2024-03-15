@@ -1,0 +1,67 @@
+{% extends 'global/main_layout.html' %}
+{% load static %}
+
+{% block title %}{{ book.title }}{% endblock title %}
+
+{% block content %} 
+    <main class="main-content"> 
+        <div class="main-bg">
+            <section class="hero">
+                <img class="hero-content-img" src= {{ book.cover.url }} alt="Book cover of {{ book.title }}" >
+                <header class="hero-content">
+                    <h1 class="hero-content-title">{{ book.title }}</h1>
+                    <a class="hero-content-subtitle">
+                        {% for author in book.author.all %}
+                            {{ author.name }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </a>
+                    <div class="data-meta">
+                        <span class="data-meta-text">{{ book.isbn }}</span>
+                        <span class="data-meta-text">{{ book.publisher }}</span>
+                        <span class="data-meta-text">{{ book.nr_pages }}</span>
+                    </div>
+                    <button class="start-reading-button" href="#">Add</button>
+                </header>
+            </section>
+        </div>
+    </main>
+
+    <div class="text-meta">
+        {{ book.synopsis|linebreaksbr }}
+    </div>
+
+    <main class="main-content-container">
+        <h2 class="section-title">Other books by
+            {% for author in book.author.all %}
+                {{ author.name }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </h2>
+        <div class="main-content main-content-list container">
+            {% for author_book in author_books %}
+                <div class="book book-list-item">
+                    <div class="book-cover">
+                        <img src="{{ author_book.cover.url }}" alt="Image of the cover of the book">
+                    </div>
+                    <div class="book-title-container">
+                        <a class="book-link" href="#">
+                            {{ author_book.title }}
+                        </a>
+                    </div>
+
+                    <div class="book-author">
+                        {% for author in author_book.author.all %}
+                            <a class="book-author-item" href="#">
+                                {{ author.name }}
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% empty %}
+                <div class="text-center">
+                    </h5>No other books found by this author</h5>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+
+{% endblock content %}

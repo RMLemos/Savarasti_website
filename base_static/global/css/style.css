@@ -311,3 +311,22 @@
     font-size: 1.5rem;
     font-weight: 500;
   }
+
+    /* Book and Author pages */
+    .data-meta {
+      display: flex;
+      flex-flow: column nowrap;
+      text-align: center;
+    }
+    
+    .data-title {
+      font-size: 1.6rem;
+    }
+  
+    .text-meta{
+      margin-bottom: var(--spacing-gutter-medium);
+      margin-left: 170px;
+      margin-right: 170px;
+    }
+  
+  

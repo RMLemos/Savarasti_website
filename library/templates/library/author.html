@@ -1,0 +1,53 @@
+{% extends 'global/main_layout.html' %}
+{% load static %}
+
+{% block title %}Author{% endblock title %}
+
+{% block content %} 
+    <main class="main-content"> 
+        <div class="main-bg">
+            <section class="hero">
+                <img class="hero-content-img" src= {{ author.picture.url }} alt="Picture of {{ author.name }}">
+                <header class="hero-content">
+                    <h1 class="hero-content-title">{{ author.name }}</h1>
+                    <div class="data-meta">
+                        <div class="data-meta-text">Country: {{ author.country }}</div>
+                    </div>
+                </header>
+            </section>
+        </div>
+    </main>
+
+    <div class="text-meta">
+        {{ author.bio|linebreaksbr }}
+    </div>
+
+    <main class="main-content-container">
+        <h2 class="section-title">Bibliography</h2>
+        <div class="main-content main-content-list container">
+            {% for book in books %}
+                <div class="book book-list-item">
+                    <div class="book-cover">
+                        <img src="{{ book.cover.url }}" alt="Image of the cover of the book">
+                    </div>
+                    <div class="book-title-container">
+                        <a class="book-link" href="#">
+                            {{ book.title }}
+                        </a>
+                    </div>
+
+                    <div class="book-author">
+                        <a class="book-author-item" href="#">
+                            {{ book.author.name }}
+                        </a>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="text-center">
+                    </h5>No books found</h5>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+
+{% endblock content %}
