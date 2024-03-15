@@ -1,0 +1,71 @@
+{% extends 'global/main_layout.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %} 
+    <main class="main-content"> 
+        <div class="main-bg">
+            <section class="hero">
+                <header class="hero-content">
+                    <h1 class="hero-content-title">Read can change your life</h1>
+                    <h3 class="hero-content-subtitle">Explore millions books and find your next book to read</h3>
+                    <button class="start-reading-button" href="#">Start reading</button>
+                </header>
+                <img class="hero-content-img" src= {% static 'global/images/book_img.png' %} alt="Image of books" >
+            </section>
+        </div>
+    </main>
+
+    <main class="main-content-container">
+        <h2 class="section-title">Discover books to read</h2>
+        <div class="main-content main-content-list container">
+            {% for book in books %}
+                <div class="book book-list-item">
+                    <div class="book-cover">
+                        <img src="{{ book.cover.url }}" alt="Image of the cover of the book">
+                    </div>
+                    <div class="book-title-container">
+                        <a class="book-link" href="#">
+                            {{ book.title }}
+                        </a>
+                    </div>
+
+                    <div class="book-author">
+                        <a class="book-author-item" href="#">
+                            {{ book.author.name }}
+                        </a>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="text-center">
+                    </h5>No books found</h5>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+
+    <main class="main-content-container">
+        <h2 class="section-title">Authors of the month</h2>
+        <div class="main-content main-content-list container">
+            {% for author in authors %}
+                <div class="book book-list-item">
+                    <div class="book-cover">
+                        <img src="{{ author.picture.url }}" alt="Image of the author">
+                    </div>
+                    <div class="book-title-container">
+                        <a class="book-link" href="#">
+                            {{ author.name }}
+                        </a>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="text-center">
+                    </h5>No authors found</h5>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+
+{% endblock content %}
+
