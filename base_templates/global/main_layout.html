@@ -9,10 +9,25 @@
     <meta name="description" content="Explore books to read next">
 </head>
 <body>
+    {% include 'global/partials/menu.html' %}
     {% include 'global/partials/header.html' %}
+
+    {% block content %}
+
+    {% if messages %}
+        <div class="main-content center container">
+            {% for message in messages %}
+                <div class="message {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
     
-    {% block content %}  {% endblock content %}
+    {% endblock content %}
 
     {% include 'global/partials/footer.html' %}
+
+    <script src="{% static 'global/js/scripts.js' %}"></script>
 </body>
 </html>

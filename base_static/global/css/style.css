@@ -20,6 +20,21 @@
     --clr-white: rgb(244, 243, 239);
     --clr-black: rgb(0, 0, 30);
 
+    --color-dark-text: #444;
+    --color-info-light: #cce5ff;
+    --color-debug-light: #cce5ff;
+    --color-success-light: #d4edda;
+    --color-alert-light: #fff3cd;
+    --color-warning-light: #fff3cd;
+    --color-error-light: #f8d7da;
+
+    --color-info-dark: #4d86c4;
+    --color-debug-dark: #4d86c4;
+    --color-success-dark: #4a9c5d;
+    --color-alert-dark: #927f40;
+    --color-warning-dark: #927f40;
+    --color-error-dark: #da525d;
+
     /* Spacing */
     --spacing: 1.5rem;
     --spacing-gutter-medium: 3rem;
@@ -133,6 +148,60 @@
     font-size: var(--fs-smlr);
   }
 
+  /* Messages */
+
+  .messages-container {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: calc(var(--spacing-gutter-medium) / 2);
+  }
+
+  .message {
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid var(--color-dark-text);
+    background: var(--color-gray-2);
+    color: var(--color-dark-text);
+  }
+  
+  .message-error {
+    border: 1px solid var(--color-error-dark);
+    background: var(--color-error-light);
+    color: var(--color-error-dark);
+  }
+  
+  .message-success {
+    border: 1px solid var(--color-success-dark);
+    background: var(--color-success-light);
+    color: var(--color-success-dark);
+  }
+  
+  .message-warning {
+    border: 1px solid var(--color-warning-dark);
+    background: var(--color-warning-light);
+    color: var(--color-warning-dark);
+  }
+  
+  .message-alert {
+    border: 1px solid var(--color-alert-dark);
+    background: var(--color-alert-light);
+    color: var(--color-alert-dark);
+  }
+  
+  .message-info {
+    border: 1px solid var(--color-info-dark);
+    background: var(--color-info-light);
+    color: var(--color-info-dark);
+  }
+  
+  .message-debug {
+    border: 1px solid var(--color-debug-dark);
+    background: var(--color-debug-light);
+    color: var(--color-debug-dark);
+  }
+
+  /* Nav Bar */
+
   nav{
     max-width: 100%;
     padding: 1.5rem 10rem;
@@ -170,7 +239,7 @@
   .login-button:hover {
     filter: brightness(70%);
   }
-
+  
   /* Home Page Hero */
 
   .main-content {
@@ -329,5 +398,225 @@
       margin-left: 170px;
       margin-right: 170px;
     }
+
+      /* Menu */
+
+  .hidden-text {
+    display: none;
+  }
   
+  .menu-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 260px;
+    min-height: 100vh;
+    overflow-y: auto;
+    background: var(--color-bg);
+    z-index: 2;
+    transition: all 300ms ease-in-out;
+  }
+  
+  .menu-container a {
+    color: var(--color-white);
+  }
+  
+  .menu-hidden {
+    right: -255px;
+  }
+  
+  .button-show-menu {
+    position: fixed;
+    right: 5px;
+    top: 0.3rem;
+    color: var(--color-white);
+    background-color: var(--color-bg);
+    border: none;
+    font-size: 2rem;
+    z-index: 3;
+    padding: 0.8rem;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 300ms ease-in-out;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .button-show-menu-visible {
+    visibility: visible;
+    opacity: 1;
+    right: 5px;
+  }
+  
+  .button-close-menu {
+    position: absolute;
+    top: 0.8rem;
+    right: 1rem;
+    color: var(--color-white);
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    z-index: 3;
+    cursor: pointer;
+  }
+  
+  .menu-aside {
+    display: flex;
+    flex-flow: column wrap;
+    font-family: var(--font-headings);
+    font-size: 1.4rem;
+  }
+  
+  .menu-aside a {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  /* Messages */
+
+  .messages-container {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: calc(var(--spacing-gutter-medium) / 2);
+  }
+    
+.message {
+  padding: 1rem;
+  border-radius: 4px;
+  border: 1px solid var(--color-dark-text);
+  background: var(--color-gray-2);
+  color: var(--color-dark-text);
+}
+  
+.message-error {
+  border: 1px solid var(--color-error-dark);
+  background: var(--color-error-light);
+  color: var(--color-error-dark);
+}
+
+.message-success {
+  border: 1px solid var(--color-success-dark);
+  background: var(--color-success-light);
+  color: var(--color-success-dark);
+}
+
+.message-warning {
+  border: 1px solid var(--color-warning-dark);
+  background: var(--color-warning-light);
+  color: var(--color-warning-dark);
+}
+
+.message-alert {
+  border: 1px solid var(--color-alert-dark);
+  background: var(--color-alert-light);
+  color: var(--color-alert-dark);
+}
+
+.message-info {
+  border: 1px solid var(--color-info-dark);
+  background: var(--color-info-light);
+  color: var(--color-info-dark);
+}
+
+.message-debug {
+  border: 1px solid var(--color-debug-dark);
+  background: var(--color-debug-light);
+  color: var(--color-debug-dark);
+}
+
+ /* Forms Login / Register */
+
+ .form-wrapper {
+  max-width: 45rem;
+  margin: var(--spacing) auto;
+}
+
+.form-content {
+  margin: var(--spacing-gutter-medium) 0;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: var(--spacing);
+}
+
+.errorlist {
+  list-style: none;
+  font-size: var(--fs-smlst);
+  color: tomato;
+}
+
+.errorlist.nonfield {
+  color: inherit;
+}
+
+.error-message{
+  font-size: var(--fs-smlst);
+  color: tomato;
+}
+
+.form-group span {
+  margin: 1em 0;
+}
+
+.form-group .help-text,
+.form-group .help-text ~ ul {
+  margin: 0;
+  font-size: var(--fs-smlst);
+  list-style: none;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 1rem;
+  border-radius: var(--default-border-radius);
+  border: 1px solid #dfab92;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  box-shadow: 0 0 5px #eb8452;
+}
+
+.form-group label {
+  font-size: var(--fs-smlst);
+  margin-bottom: .5rem;
+}
+
+.btn {
+  background-color: #dfab92;
+  font-weight: bold;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: var(--default-border-radius);
+  cursor: pointer;
+  transition: filter 300ms ease-in-out;
+}
+
+.btn:hover {
+  filter: brightness(90%);
+}
+
+.btn:focus,
+.btn:active {
+  filter: brightness(80%);
+  box-shadow: 0 0 5px #dfab92;
+}
+
+.delete-btn {
+  margin-top: 0;
+  background-color: #7b222f;
+  color: var(--color-white);
+}
+  
+@media (max-width: 600px) {
+  .main-content-list {
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  }
+}
   
